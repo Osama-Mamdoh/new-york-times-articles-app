@@ -1,3 +1,3 @@
 export interface State {
-  readonly keyword: Array<string>;
+  readonly keywords: Array<string>;
 }

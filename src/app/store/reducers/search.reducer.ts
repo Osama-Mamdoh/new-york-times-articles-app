@@ -1,4 +1,4 @@
-import { SearchAction, SearchActionType } from '../actions/keywords.action';
+import { SearchAction, SearchActionType } from '../actions/search.action';
 
 const initialState: Array<string> = [];
 

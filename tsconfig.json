@@ -16,7 +16,8 @@
     "paths": {
       "@environment": ["src/environments/environment.ts"],
       "@shared/*": ["src/app/shared/*"],
-      "@core/*": ["src/app/core/*"]
+      "@core/*": ["src/app/core/*"],
+      "@store/*": ["src/app/store/*"]
     },
     "resolveJsonModule": true,
     "esModuleInterop": true,

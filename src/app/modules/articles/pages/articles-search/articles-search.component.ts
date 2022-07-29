@@ -3,7 +3,7 @@ import { NyTimesService } from '@core/services';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { State } from '@core/models';
-import { AddKeywodAction } from '../../../../store/actions/keywords.action';
+import { AddKeywodAction } from '@store/actions/search.action';
 import { Router } from '@angular/router';
 
 @Component({
@@ -29,7 +29,7 @@ export class ArticlesSearchComponent implements OnInit {
 
   ngOnInit() {
     this.getArticles();
-    this.keywords$ = this.store.select((store) => store.keyword);
+    this.keywords$ = this.store.select((store) => store.keywords);
     this.keywords$.subscribe((res) => {
       this.lastSearchedKeys = res.slice(-5);
     });

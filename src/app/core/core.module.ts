@@ -11,7 +11,7 @@ import { ToastrModule } from 'ngx-toastr';
 import * as fromServices from './services';
 import { APP_CONFIG, AppConfig } from '@core/configs/app.config';
 import { StoreModule } from '@ngrx/store';
-import { SearchReducer } from '../store/reducers/search.reducer';
+import { SearchReducer } from '@store/reducers/search.reducer';
 @NgModule({
   declarations: [],
   imports: [
@@ -23,7 +23,7 @@ import { SearchReducer } from '../store/reducers/search.reducer';
       timeOut: 2000,
     }),
     StoreModule.forRoot({
-      keyword: SearchReducer,
+      keywords: SearchReducer,
     }),
   ],
   providers: [
