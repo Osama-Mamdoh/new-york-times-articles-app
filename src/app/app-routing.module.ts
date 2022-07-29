@@ -4,22 +4,22 @@ import { AuthGuard, NoAuthGuard } from '@core/guards';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'news',
     loadChildren: () =>
-      import('./modules/news/news.module').then((m) => m.NewsModule),
-    canActivate: [AuthGuard],
+      import('./modules/news/news.module').then(m => m.NewsModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'auth',
     loadChildren: () =>
-      import('./modules/auth/auth.module').then((m) => m.AuthModule),
-    canActivate: [NoAuthGuard],
+      import('./modules/auth/auth.module').then(m => m.AuthModule),
+    canActivate: [NoAuthGuard]
   },
-  { path: '**', redirectTo: '' },
+  { path: '**', redirectTo: 'news' }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
+  exports: [RouterModule]
 })
 export class AppRoutingModule {}

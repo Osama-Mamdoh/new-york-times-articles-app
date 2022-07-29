@@ -1,16 +1,22 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { TopNewsComponent } from './pages/top-news/top-news.component';
+import { TopNewsComponent, MainLayoutComponent } from './pages';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'top-news', pathMatch: 'full' },
   {
-    path: 'top-news',
-    component: TopNewsComponent,
-  },
+    path: '',
+    component: MainLayoutComponent,
+    children: [
+      { path: '', redirectTo: 'top-news', pathMatch: 'full' },
+      {
+        path: 'top-news',
+        component: TopNewsComponent
+      }
+    ]
+  }
 ];
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
+  exports: [RouterModule]
 })
 export class NewsRoutingModule {}

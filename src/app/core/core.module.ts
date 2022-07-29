@@ -5,11 +5,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GlobalErrorHandler } from '@core/helpers';
 import {
   ServerErrorInterceptor,
-  HttpTokenInterceptor,
+  HttpTokenInterceptor
 } from '@core/interceptors';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
 import * as fromServices from './services';
+import { APP_CONFIG, AppConfig } from '@core/configs/app.config';
 
 @NgModule({
   declarations: [],
@@ -17,26 +17,25 @@ import * as fromServices from './services';
     CommonModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    NgbModule,
     ToastrModule.forRoot({
       positionClass: 'toast-top-right',
-      timeOut: 2000,
-    }),
+      timeOut: 2000
+    })
   ],
   providers: [
+    { provide: APP_CONFIG, useValue: AppConfig },
     { provide: ErrorHandler, useClass: GlobalErrorHandler },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ServerErrorInterceptor,
-      multi: true,
+      multi: true
     },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpTokenInterceptor,
-      multi: true,
+      multi: true
     },
-    ...fromServices.services,
-  ],
-  exports: [NgbModule],
+    ...fromServices.services
+  ]
 })
 export class CoreModule {}

@@ -3,7 +3,7 @@ import {
   HttpRequest,
   HttpHandler,
   HttpEvent,
-  HttpInterceptor,
+  HttpInterceptor
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -18,14 +18,14 @@ export class HttpTokenInterceptor implements HttpInterceptor {
     request: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    // add auth header with jwt if user is logged in and request is to api url
+    // add auth header with jwt if user is logged in
     const isAuthenticated = this.authenticationService.isAuthenticated();
     const isApiUrl = request.url.startsWith(environment.baseUrl);
     if (isAuthenticated && isApiUrl) {
       request = request.clone({
         setHeaders: {
-          Authorization: `Bearer ${this.authenticationService.getToken()}`,
-        },
+          Authorization: `Bearer ${this.authenticationService.getToken()}`
+        }
       });
     }
 

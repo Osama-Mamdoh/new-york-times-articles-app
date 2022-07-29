@@ -3,7 +3,7 @@ import {
   FormBuilder,
   FormControl,
   FormGroup,
-  Validators,
+  Validators
 } from '@angular/forms';
 import { AuthenticationService } from '@core/services';
 import { NotificationService, LoggingService } from '@core/utils';
@@ -12,7 +12,7 @@ import { Router, NavigationEnd } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
   authForm: FormGroup;
@@ -21,12 +21,12 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private authenticationService: AuthenticationService,
+    public authenticationService: AuthenticationService,
     private notifier: NotificationService,
     private logging: LoggingService,
     private router: Router
   ) {
-    router.events.subscribe((event) => {
+    router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         if (router.url.includes('login')) {
           this.login = true;
@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this.authForm = this.fb.group({
       email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', [Validators.required]),
+      password: new FormControl('', [Validators.required])
     });
   }
 
@@ -56,7 +56,7 @@ export class LoginComponent implements OnInit {
     this.loading = true;
     const data = {
       email: this.emailField.value,
-      password: this.passwordField.value,
+      password: this.passwordField.value
     };
 
     this.authenticationService.authenticate(data, this.login).subscribe(
@@ -64,7 +64,7 @@ export class LoginComponent implements OnInit {
         this.loading = false;
         this.router.navigate(['/']);
       },
-      (error) => {
+      error => {
         this.loading = false;
         this.notifier.showError(error.error.message);
         this.logging.logError(error.error.message, error.name);

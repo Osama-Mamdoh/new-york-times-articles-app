@@ -1,1 +1,48 @@
-<p>top-news works!</p>
+<div class="container">
+  <div class="d-flex justify-content-center my-4 my-md-5">
+    <h2 class="mr-25 my-0 text-center">Top News</h2>
+    <div class="btn-group" role="group">
+      <button
+        *ngFor="let category of newsCategories; let i = index"
+        type="button"
+        class="btn px-4"
+        [class]="[category.class]"
+        [ngClass]="{ active: category.active }"
+        (click)="selectCategory(i)"
+      >
+        {{ category.title }}
+      </button>
+    </div>
+  </div>
+  <ng-container *ngIf="displayedNews.length">
+    <div class="cards-container">
+      <div
+        *ngFor="
+          let new of displayedNews | slice: pageSize | slice: 0:itemsPerPage
+        "
+        class="col"
+      >
+        <app-card
+          [data]="{
+            image: (new?.multimedia)[0]?.url,
+            imageAlt: (new?.multimedia)[0]?.caption,
+            title: new.title,
+            description: new.abstract,
+            byline: new.byline
+          }"
+          [readMore]="true"
+          (readMoreAction)="openLink(new.url)"
+        ></app-card>
+      </div>
+    </div>
+    <div class="my-3 my-md-4 d-flex justify-content-end">
+      <ngb-pagination
+        [collectionSize]="displayedNews.length"
+        #numPages
+        [pageSize]="itemsPerPage"
+        [(page)]="currentPage"
+        (pageChange)="onPageChange(currentPage)"
+      ></ngb-pagination>
+    </div>
+  </ng-container>
+</div>
