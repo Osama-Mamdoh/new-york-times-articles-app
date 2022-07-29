@@ -24,6 +24,6 @@ export class GlobalErrorHandler implements ErrorHandler {
       notifier.showError(message);
     }
     // Always log errors
-    logger.logError(message);
+    logger.logError(message, errorType);
   }
 }

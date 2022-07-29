@@ -2,18 +2,18 @@ import { CookiesService } from './cookies.service';
 import { ErrorService } from './error.service';
 import { LoggingService } from './logging.service';
 import { NotificationService } from './notification.service';
-import { ConnectionService } from './connection.service';
+import { ApiGatewayService } from './api-getaway.service';
 
-export const services: any[] = [
+export const utlis: any[] = [
   CookiesService,
   ErrorService,
   LoggingService,
   NotificationService,
-  ConnectionService,
+  ApiGatewayService,
 ];
 
 export * from './cookies.service';
 export * from './error.service';
 export * from './logging.service';
 export * from './notification.service';
-export * from './connection.service';
+export * from './api-getaway.service';

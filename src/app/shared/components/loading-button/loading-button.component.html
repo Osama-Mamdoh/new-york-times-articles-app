@@ -1,0 +1,9 @@
+<button [disabled]="disabled" [type]="type" class="mt-3 btn btn-primary w-100">
+  <span class="sr-only">{{ text }}</span>
+  <span
+    *ngIf="loading"
+    class="spinner-border spinner-border-sm mx-2"
+    role="status"
+    aria-hidden="true"
+  ></span>
+</button>

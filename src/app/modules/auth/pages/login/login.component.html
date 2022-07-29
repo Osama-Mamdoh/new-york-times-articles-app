@@ -1,0 +1,71 @@
+<div class="container vh-100 d-flex justify-content-center align-items-center">
+  <div class="col col-md-6 col-xs-12">
+    <div class="card">
+      <div class="card-header">
+        {{ login ? 'Login ' : 'Register' }} to New York Times
+      </div>
+      <div class="card-body">
+        <form [formGroup]="authForm" (ngSubmit)="authFormSubmit()">
+          <div class="mb-3">
+            <label for="id_email" class="form-label">Email address</label>
+            <input
+              formControlName="email"
+              [class.is-invalid]="emailField.touched && emailField.invalid"
+              type="email"
+              class="form-control"
+              id="id_email"
+              autocomplete="off"
+            />
+            <div
+              *ngIf="emailField.touched && emailField.hasError('required')"
+              class="d-block invalid-feedback"
+            >
+              Please provide an email.
+            </div>
+            <div
+              *ngIf="emailField.touched && emailField.hasError('email')"
+              class="d-block invalid-feedback"
+            >
+              Email address is not valid
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="id_Password" class="form-label">Password</label>
+            <input
+              formControlName="password"
+              [class.is-invalid]="
+                passwordField.touched && passwordField.invalid
+              "
+              type="password"
+              class="form-control"
+              id="id_Password"
+              autocomplete="off"
+            />
+            <div
+              *ngIf="
+                passwordField.touched && passwordField.hasError('required')
+              "
+              class="d-block invalid-feedback"
+            >
+              Please provide password.
+            </div>
+          </div>
+          <div class="d-flex justify-content-center" *ngIf="login">
+            Don't have an account?
+            <a [routerLink]="['/auth/register']" class="ml-10">Sign Up</a>
+          </div>
+          <div class="d-flex justify-content-center" *ngIf="!login">
+            Have an account?
+            <a [routerLink]="['/auth/login']" class="ml-10">Login</a>
+          </div>
+          <app-loading-button
+            [disabled]="authForm.invalid"
+            [text]="login ? 'Submit' : 'Create Account'"
+            [loading]="loading"
+            [type]="'submit'"
+          ></app-loading-button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

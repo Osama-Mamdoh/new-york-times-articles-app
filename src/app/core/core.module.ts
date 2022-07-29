@@ -9,6 +9,7 @@ import {
 } from '@core/interceptors';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
+import * as fromServices from './services';
 
 @NgModule({
   declarations: [],
@@ -34,6 +35,7 @@ import { ToastrModule } from 'ngx-toastr';
       useClass: HttpTokenInterceptor,
       multi: true,
     },
+    ...fromServices.services,
   ],
   exports: [NgbModule],
 })
