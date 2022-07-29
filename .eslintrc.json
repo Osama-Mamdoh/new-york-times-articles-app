@@ -5,7 +5,9 @@
   },
   "overrides": [
     {
-      "files": ["*.ts"],
+      "files": [
+        "*.ts"
+      ],
       "extends": [
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
@@ -14,23 +16,36 @@
       ],
       "parser": "@typescript-eslint/parser",
       "parserOptions": {
-        "project": ["tsconfig.json", "tsconfig.spec.json", "e2e/tsconfig.json"],
+        "project": [
+          "tsconfig.json",
+          "tsconfig.spec.json",
+          "e2e/tsconfig.json"
+        ],
         "ecmaVersion": "latest",
         "sourceType": "module"
       },
-      "plugins": ["@typescript-eslint", "prettier"],
+      "plugins": [
+        "@typescript-eslint",
+        "prettier"
+      ],
       "rules": {
         "@typescript-eslint/explicit-function-return-type": "off",
         "@typescript-eslint/no-explicit-any": "off",
         "@typescript-eslint/explicit-module-boundary-types": "off",
         "@typescript-eslint/no-empty-function": "off",
         "@typescript-eslint/no-var-requires": "off",
-        "@typescript-eslint/no-unused-vars": ["error"],
-        "prettier/prettier": ["error"]
+        "@typescript-eslint/no-unused-vars": [
+          "error"
+        ],
+        "prettier/prettier": [
+          "error"
+        ]
       }
     },
     {
-      "files": ["*.html"],
+      "files": [
+        "*.html"
+      ],
       "extends": [
         "plugin:@angular-eslint/template/recommended",
         "plugin:prettier/recommended"
@@ -38,8 +53,18 @@
       "rules": {
         "@angular-eslint/template/use-track-by-function": "off",
         "@angular-eslint/template/no-call-expression": "warn",
-        "prettier/prettier": ["off"]
+        "prettier/prettier": [
+          "off"
+        ]
       }
+    },
+    {
+      "files": [
+        "*.ts"
+      ],
+      "extends": [
+        "plugin:ngrx/recommended"
+      ]
     }
   ]
 }

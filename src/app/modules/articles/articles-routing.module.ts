@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { TopNewsComponent } from './pages';
+import { ArticlesSearchComponent, ArticlePreviewComponent } from './pages';
 import { MainLayoutComponent } from '@shared/components';
 
 const routes: Routes = [
@@ -8,10 +8,14 @@ const routes: Routes = [
     path: '',
     component: MainLayoutComponent,
     children: [
-      { path: '', redirectTo: 'top-news', pathMatch: 'full' },
+      { path: '', redirectTo: 'search', pathMatch: 'full' },
       {
-        path: 'top-news',
-        component: TopNewsComponent,
+        path: 'search',
+        component: ArticlesSearchComponent,
+      },
+      {
+        path: 'preview',
+        component: ArticlePreviewComponent,
       },
     ],
   },
@@ -20,4 +24,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class NewsRoutingModule {}
+export class ArticlesRoutingModule {}

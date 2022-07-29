@@ -1,18 +1,13 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { CardData } from '@core/models';
 
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
-  styleUrls: ['./card.component.scss']
+  styleUrls: ['./card.component.scss'],
 })
 export class CardComponent {
-  @Input() data: {
-    image: string;
-    imageAlt: string;
-    title: string;
-    description: string;
-    byline: string;
-  };
+  @Input() data: CardData;
   @Input() readMore: boolean;
   @Output() readMoreAction = new EventEmitter();
 

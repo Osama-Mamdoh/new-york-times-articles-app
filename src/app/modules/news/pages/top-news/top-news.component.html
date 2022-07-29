@@ -24,8 +24,8 @@
       >
         <app-card
           [data]="{
-            image: (new?.multimedia)[0]?.url,
-            imageAlt: (new?.multimedia)[0]?.caption,
+            image: new.multimedia[0]?.url,
+            imageAlt: new.multimedia[0]?.caption,
             title: new.title,
             description: new.abstract,
             byline: new.byline

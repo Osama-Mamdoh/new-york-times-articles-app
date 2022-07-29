@@ -5,12 +5,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GlobalErrorHandler } from '@core/helpers';
 import {
   ServerErrorInterceptor,
-  HttpTokenInterceptor
+  HttpTokenInterceptor,
 } from '@core/interceptors';
 import { ToastrModule } from 'ngx-toastr';
 import * as fromServices from './services';
 import { APP_CONFIG, AppConfig } from '@core/configs/app.config';
-
+import { StoreModule } from '@ngrx/store';
+import { SearchReducer } from '../store/reducers/search.reducer';
 @NgModule({
   declarations: [],
   imports: [
@@ -19,8 +20,11 @@ import { APP_CONFIG, AppConfig } from '@core/configs/app.config';
     BrowserAnimationsModule,
     ToastrModule.forRoot({
       positionClass: 'toast-top-right',
-      timeOut: 2000
-    })
+      timeOut: 2000,
+    }),
+    StoreModule.forRoot({
+      keyword: SearchReducer,
+    }),
   ],
   providers: [
     { provide: APP_CONFIG, useValue: AppConfig },
@@ -28,14 +32,14 @@ import { APP_CONFIG, AppConfig } from '@core/configs/app.config';
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ServerErrorInterceptor,
-      multi: true
+      multi: true,
     },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpTokenInterceptor,
-      multi: true
+      multi: true,
     },
-    ...fromServices.services
-  ]
+    ...fromServices.services,
+  ],
 })
 export class CoreModule {}

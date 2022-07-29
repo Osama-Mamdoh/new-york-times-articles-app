@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   baseUrl: 'http://localhost:8000/',
-  nytimesUrl: 'https://api.nytimes.com/svc/'
+  nytimesUrl: 'https://api.nytimes.com/svc/',
 };
 
 /*

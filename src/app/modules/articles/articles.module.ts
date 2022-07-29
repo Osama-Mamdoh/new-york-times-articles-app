@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NewsRoutingModule } from './news-routing.module';
+import { ArticlesRoutingModule } from './articles-routing.module';
 import * as fromPages from './pages';
 import { SharedModule } from '@shared/shared.module';
 
 @NgModule({
   declarations: [...fromPages.pages],
-  imports: [CommonModule, NewsRoutingModule, SharedModule],
+  imports: [CommonModule, ArticlesRoutingModule, SharedModule],
 })
-export class NewsModule {}
+export class ArticlesModule {}

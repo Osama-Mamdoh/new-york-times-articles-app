@@ -6,20 +6,28 @@ const routes: Routes = [
   {
     path: 'news',
     loadChildren: () =>
-      import('./modules/news/news.module').then(m => m.NewsModule),
-    canActivate: [AuthGuard]
+      import('./modules/news/news.module').then((m) => m.NewsModule),
+    canActivate: [AuthGuard],
   },
   {
     path: 'auth',
     loadChildren: () =>
-      import('./modules/auth/auth.module').then(m => m.AuthModule),
-    canActivate: [NoAuthGuard]
+      import('./modules/auth/auth.module').then((m) => m.AuthModule),
+    canActivate: [NoAuthGuard],
   },
-  { path: '**', redirectTo: 'news' }
+  {
+    path: 'articles',
+    loadChildren: () =>
+      import('./modules/articles/articles.module').then(
+        (m) => m.ArticlesModule
+      ),
+    canActivate: [AuthGuard],
+  },
+  { path: '**', redirectTo: 'news' },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}

@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="d-flex justify-content-center my-4 my-md-5">
+    <div class="input-group">
+      <input
+        type="text"
+        class="form-control bg-light"
+        placeholder="Search for articles"
+        [(ngModel)]="keyword"
+        list="datalistOptions"
+      />
+      <datalist id="datalistOptions">
+        <option *ngFor="let key of lastSearchedKeys" [value]="key">
+          Search with this keyword
+        </option>
+      </datalist>
+
+      <div class="input-group-append">
+        <button
+          class="btn btn-success px-5"
+          type="button"
+          (click)="searchForArticles()"
+        >
+          Search
+        </button>
+      </div>
+    </div>
+  </div>
+  <ng-container *ngIf="displayedArticles.length">
+    <div class="cards-container">
+      <div *ngFor="let article of displayedArticles" class="col">
+        <app-card
+          [data]="{
+            image: 'https://static01.nyt.com/' + article.multimedia[0]?.url,
+            imageAlt: article.multimedia[0]?.caption,
+            title: article?.headline?.main,
+            description: article.abstract,
+            byline: article.byline.original
+          }"
+          [readMore]="true"
+          (readMoreAction)="openLink()"
+        ></app-card>
+      </div>
+    </div>
+    <div class="my-3 my-md-4 d-flex justify-content-end">
+      <ngb-pagination
+        [collectionSize]="totalDataSize"
+        [(page)]="currentPage"
+        [maxSize]="itemsPerPage"
+        [boundaryLinks]="true"
+        [rotate]="true"
+        (pageChange)="onPageChange(currentPage)"
+      ></ngb-pagination>
+    </div>
+  </ng-container>
+</div>

@@ -12,14 +12,14 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
-    NgbModule
+    NgbModule,
   ],
   exports: [
     ...fromComponents.components,
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    NgbModule
-  ]
+    NgbModule,
+  ],
 })
 export class SharedModule {}

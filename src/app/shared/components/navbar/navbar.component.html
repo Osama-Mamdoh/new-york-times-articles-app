@@ -27,11 +27,11 @@
   >
     <ul ngbNav class="navbar-nav mx-3">
       <li
-        ngbNavItem
+        class="nav-item"
         *ngFor="let link of links"
-        [ngClass]="{ active: router.url.includes(link.title) }"
+        [ngClass]="{ active: link.active }"
       >
-        <a ngbNavLink [routerLink]="[link.url]">{{ link.title }}</a>
+        <a class="nav-link" [routerLink]="[link.url]">{{ link.title }}</a>
       </li>
     </ul>
     <button type="submit" class="btn btn-danger" (click)="logout()">
