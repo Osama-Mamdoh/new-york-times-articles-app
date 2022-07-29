@@ -62,7 +62,7 @@ export class ArticlesSearchComponent implements OnInit {
     this.getArticles();
   }
 
-  openLink() {
-    this.router.navigate(['/articles/preview']);
+  openLink(article) {
+    this.router.navigateByUrl('/articles/preview', { state: article });
   }
 }
