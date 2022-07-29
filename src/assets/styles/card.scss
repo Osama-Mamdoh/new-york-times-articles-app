@@ -13,28 +13,3 @@
     display: contents;
   }
 }
-
-.card {
-  -webkit-transition: all 0.9s ease;
-  -moz-transition: all 0.9s ease;
-  -o-transition: all 0.9s ease;
-  -ms-transition: all 0.9s ease;
-  &:hover {
-    -webkit-transform: scale(1.05);
-    -moz-transform: scale(1.05);
-    -ms-transform: scale(1.05);
-    -o-transform: scale(1.05);
-    transform: scale(1.05);
-  }
-
-  img {
-    height: 250px;
-    &:hover {
-      opacity: 0.9;
-    }
-  }
-
-  a {
-    cursor: pointer;
-  }
-}

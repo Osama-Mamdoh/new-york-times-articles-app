@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start-auth": "cd fake-api-jwt-json-server && npm install && npm run start-auth",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
