@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://www.nytimes.com/">
-    <img alt="Gatsby" src="https://mwcm.nyt.com/.resources/mkt-wcm/dist/libs/assets/img/logo-nyt-header.svg" width="400" />
+    <img alt="Gatsby" src="https://mwcm.nyt.com/.resources/mkt-wcm/dist/libs/assets/img/logo_nyt_white.svg" width="400" />
   </a>
 </p>
 
@@ -16,11 +16,13 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Local JWT server
 
-This project use thir [reposaitry](https://github.com/techiediaries/fake-api-jwt-json-server) as a local serve. To start the project check below:
+This project use this [reposaitry](https://github.com/techiediaries/fake-api-jwt-json-server) as a local serve. To start the project check below:
 
 ### Install Server and App
 
 ```bash
+$ git clone https://github.com/Osama-Mamdoh/new-york-times-articles-app.git
+$ cd new-york-times-articles-app
 $ npm install
 $ npm run start-auth
 ```
