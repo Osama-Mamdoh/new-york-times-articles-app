@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { LoadingButtonComponent } from './loading-button.component';
 
 describe('LoadingButtonComponent', () => {
@@ -9,6 +9,7 @@ describe('LoadingButtonComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [LoadingButtonComponent],
+      schemas: [NO_ERRORS_SCHEMA],
     }).compileComponents();
   });
 
