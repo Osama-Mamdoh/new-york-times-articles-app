@@ -16,7 +16,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Local JWT server
 
-This project use thir [reposaitry](https://github.com/techiediaries/fake-api-jwt-json-server) as a local serve. To start the project check below:
+This project use this [repository](https://github.com/techiediaries/fake-api-jwt-json-server) as a local serve. To start the project check below:
 
 ### Install Server and App
 
