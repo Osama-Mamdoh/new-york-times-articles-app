@@ -4,6 +4,14 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class CookiesService {
+  /**
+   * Set cookie based on provided information
+   *
+   * @param name     Cookie name
+   * @param value    Cookie value
+   * @param expires  Number of days until the cookies expires or an actual `Date`
+   *
+   */
   setCookie(name: string, value: string, days: number) {
     let expires = '';
     if (days) {
@@ -14,6 +22,12 @@ export class CookiesService {
     document.cookie = name + '=' + (value || '') + expires + '; path=/';
   }
 
+  /**
+   * Get cookies by name
+   *
+   * @param name Cookie name
+   * @returns property value
+   */
   getCookie(name: string) {
     const nameEQ = name + '=';
     const ca = document.cookie.split(';');
@@ -29,6 +43,11 @@ export class CookiesService {
     return null;
   }
 
+  /**
+   * Delete cookie by name
+   *
+   * @param name   Cookie name
+   */
   eraseCookie(name: string) {
     document.cookie =
       name + '=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';

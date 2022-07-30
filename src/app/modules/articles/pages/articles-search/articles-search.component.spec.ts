@@ -12,7 +12,7 @@ describe('ArticlesSearchComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ArticlesSearchComponent],
       imports: [TestingModule, StoreModule.forRoot({})],
-      schemas: [NO_ERRORS_SCHEMA]
+      schemas: [NO_ERRORS_SCHEMA],
     }).compileComponents();
     store = TestBed.get(Store);
   });

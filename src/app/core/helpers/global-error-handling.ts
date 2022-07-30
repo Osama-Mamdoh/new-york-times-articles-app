@@ -4,6 +4,11 @@ import { LoggingService, ErrorService, NotificationService } from '@core/utils';
 
 @Injectable()
 export class GlobalErrorHandler implements ErrorHandler {
+  /**
+   * Error handling is important and needs to be loaded first.
+   *
+   * Because of this we should manually inject the services with Injector.
+   */
   constructor(private injector: Injector) {}
 
   handleError(error: Error | HttpErrorResponse) {
@@ -13,17 +18,23 @@ export class GlobalErrorHandler implements ErrorHandler {
     let message;
     let errorType: string;
     if (error instanceof HttpErrorResponse) {
-      // Server error
+      /**
+       * Server error
+       */
       message = errorService.getServerErrorMessage(error);
       errorType = 'Server Side Error';
       notifier.showError(message);
     } else {
-      // Client Error
+      /**
+       * Client Error
+       */
       message = errorService.getClientErrorMessage(error);
       errorType = 'Client Side Error';
       notifier.showError(message);
     }
-    // Always log errors
+    /**
+     * Always log errors
+     */
     logger.logError(message, errorType);
   }
 }

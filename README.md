@@ -49,6 +49,10 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 Run `ng lint` to lint the project.
 
+## Documentation
+
+Run `npm run compodoc:serve` to see the documentation via [compodoc](https://compodoc.app/)
+
 ## 🧐 What's inside?
 
 A quick look at the top-level files and directories you'll see in the project.

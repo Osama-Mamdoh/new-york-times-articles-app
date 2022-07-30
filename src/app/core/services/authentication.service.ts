@@ -15,11 +15,16 @@ export class AuthenticationService {
     private cookiesService: CookiesService,
     private apiGatewayService: ApiGatewayService
   ) {}
-
+  /**
+   * @returns App login url
+   */
   public getLoginUrl(): string {
     return this.loginUrl;
   }
 
+  /**
+   * @returns Authenticated boolean value
+   */
   public isAuthenticated() {
     if (this.getToken()) {
       return true;
@@ -27,10 +32,13 @@ export class AuthenticationService {
       return false;
     }
   }
-
+  /**
+   * @param {User} loginData User data (email, password)
+   * @param {boolean} login Differentiate between login url and registar
+   * @returns User token
+   */
   public authenticate(loginData: User, login: boolean) {
     const url = login ? 'login' : 'register';
-
     return this.apiGatewayService
       .post(`${this.baseLoginUrl}auth/${url}`, loginData)
       .pipe(
@@ -40,7 +48,9 @@ export class AuthenticationService {
         })
       );
   }
-
+  /**
+   * @returns User token
+   */
   public getToken() {
     return this.cookiesService.getCookie('token');
   }

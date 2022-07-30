@@ -16,6 +16,7 @@ export class ApiGatewayService {
    * @param othersOption  Other options for HTTP post call excluding Headers i.e. observe , responseType etc
    * @returns Observable<ResultType> | Promise
    */
+
   post<ResultType>(
     url,
     body,
@@ -39,6 +40,7 @@ export class ApiGatewayService {
    * @param othersOption
    * @returns Observable<ResultType> | Promise
    */
+
   get<ResultType>(
     url: string,
     additionalHeaders?: { [key: string]: string },
@@ -62,6 +64,7 @@ export class ApiGatewayService {
    * @param othersOption  Other options for HTTP post call excluding Headers i.e. observe , responseType etc
    * @returns Observable<ResultType> | Promise
    */
+
   put<ResultType>(
     url,
     body,
@@ -83,7 +86,7 @@ export class ApiGatewayService {
    * @param url
    * @param additionalHeaders
    * @param othersOption
-   * @returns
+   * @returns success
    */
   deleteData<ResultType>(
     url,

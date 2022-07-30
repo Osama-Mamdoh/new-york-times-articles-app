@@ -12,6 +12,10 @@ export class NyTimesService {
   private baseUrl = environment.nytimesUrl;
   constructor(private apiGatewayService: ApiGatewayService) {}
 
+  /**
+   * @param {string} category Select news category
+   * @returns The top news categorized with category
+   */
   getTopStories(category) {
     return this.apiGatewayService
       .get<DataResponse>(
@@ -26,6 +30,11 @@ export class NyTimesService {
       );
   }
 
+  /**
+   * @param {string} searchKeyword  Search keyword
+   * @param {number} page Page number
+   * @returns The articles depending on the filters
+   */
   getArticles(searchKeyword: string, page: number) {
     return this.apiGatewayService
       .get<DataResponse>(

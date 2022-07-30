@@ -17,6 +17,13 @@ export class AuthGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
+    /**
+     * Logic of authenticating user by calling some API service.
+     *
+     * Here AuthenticationService has a isAuthenticated() method which further
+     *
+     * Check user is valid or not.
+     */
     if (this.authenticationService.isAuthenticated()) {
       return true;
     } else {
