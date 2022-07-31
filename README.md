@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://www.nytimes.com/">
-    <img alt="Gatsby" src="https://mwcm.nyt.com/.resources/mkt-wcm/dist/libs/assets/img/logo-nyt-header.svg" width="400" />
+    <img alt="New York Times" src="https://mwcm.nyt.com/.resources/mkt-wcm/dist/libs/assets/img/logo_nyt_white.svg" width="400"
   </a>
 </p>
 
@@ -21,6 +21,8 @@ This project use this [repository](https://github.com/techiediaries/fake-api-jwt
 ### Install Server and App
 
 ```bash
+$ git clone https://github.com/Osama-Mamdoh/new-york-times-articles-app.git
+$ cd new-york-times-articles-app
 $ npm install
 $ npm run start-auth
 ```
